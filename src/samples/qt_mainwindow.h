@@ -10,26 +10,26 @@
 #include <QTextEdit>
 #include <QSpinBox>
 
-class MainWindow : public QWidget
-{
-  Q_OBJECT
-
-public:
-  MainWindow(QWidget* parent=nullptr);
-
-protected slots:
-  void nextClicked();
-  void renderClicked();
-  void saveClicked();
-  void fontSizeChanged(int size);
-
-protected:
-  TeXWidget* _texwidget;
-  QTextEdit* _textedit;
-  QSpinBox* _sizespin;
-
-  Samples _samples;
-};
+//class MainWindow : public QWidget
+//{
+//  Q_OBJECT
+//
+//public:
+//  MainWindow(QWidget* parent=nullptr);
+//
+//protected slots:
+//  void nextClicked();
+//  void renderClicked();
+//  void saveClicked();
+//  void fontSizeChanged(int size);
+//
+//protected:
+//  TeXWidget* _texwidget;
+//  QTextEdit* _textedit;
+//  QSpinBox* _sizespin;
+//
+//  tex::Samples _samples;
+//};
 
 #endif
 #endif

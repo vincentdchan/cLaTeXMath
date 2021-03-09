@@ -7,17 +7,17 @@
 
 #include <QApplication>
 
-int main(int argc, char **argv)
-{
-  QApplication app(argc, argv);
-
-  LaTeX::init();
-  MainWindow mainwin;
-  mainwin.show();
-  int retn = app.exec();
-
-  LaTeX::release();
-  return retn;
-}
-
+//int main(int argc, char **argv)
+//{
+//  QApplication app(argc, argv);
+//
+//  tex::LaTeX::init();
+//  MainWindow mainwin;
+//  mainwin.show();
+//  int retn = app.exec();
+//
+//  tex::LaTeX::release();
+//  return retn;
+//}
+//
 #endif

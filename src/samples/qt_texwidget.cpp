@@ -1,5 +1,6 @@
 #if defined(BUILD_QT) && !defined(MEM_CHECK)
 
+#include <QPalette>
 #include "qt_texwidget.h"
 
 TeXWidget::TeXWidget(QWidget* parent, float text_size)
@@ -9,7 +10,7 @@ TeXWidget::TeXWidget(QWidget* parent, float text_size)
     _padding(20)
 {
   QPalette pal = palette();
-  pal.setColor(QPalette::Background, Qt::white);
+  pal.setColor(QPalette::Base, Qt::white);
   setPalette(pal);
 }
 
@@ -33,11 +34,11 @@ void TeXWidget::setTextSize(float size)
   }
 }
 
-void TeXWidget::setLaTeX(const wstring& latex)
+void TeXWidget::setLaTeX(const std::wstring& latex)
 {
   if (_render != nullptr) delete _render;
 
-  _render = LaTeX::parse(
+  _render = tex::LaTeX::parse(
         latex,
         width() - _padding * 2,
         _text_size,
@@ -66,7 +67,7 @@ void TeXWidget::paintEvent(QPaintEvent* event)
   if(_render != nullptr) {
     QPainter painter(this);
     painter.setRenderHint(QPainter::Antialiasing, true);
-    Graphics2D_qt g2(&painter);
+    tex::Graphics2D_qt g2(&painter);
     _render->draw(g2, _padding, _padding);
   }
 }
